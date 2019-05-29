@@ -1,1 +1,2 @@
-# maya-io-release
+# release-management
+
