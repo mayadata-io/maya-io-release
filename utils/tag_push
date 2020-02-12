@@ -1,0 +1,9 @@
+#!/bin/sh
+set -x
+tag="$1"
+user="$2"
+pass="$3"
+git tag -fa "${tag}" -m "Release of ${tag}"
+git tag -l
+git push https://${user}:${pass}@github.com/mayadata-io/dmaas-agent.git --tag
+
