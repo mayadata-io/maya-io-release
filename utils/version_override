@@ -4,25 +4,24 @@ current_dir=$(pwd)
 reponame="$1"
 branchname="$2"
 if [[ $branchname = "master" ]];then  #tag for master
-git clone git@github.com:mayadata-io/maya-io-release.git
-cd maya-io-release/
-fixed_tag=$(cat MAJOR.MINOR)
-cd $current_dir
-rm -r maya-io-release/
-git clone git@github.com:mayadata-io/"$reponame".git
-cd "$reponame"/
-git checkout master  > /dev/null 2>&1
-var=$(git tag -l v[0-9].* | tail -n 1) #this will fetch all tags
-
-oldIFS=$IFS     # Its an inter-field separator(IFS)
-IFS="."
-set -- $var
-IFS=$oldIFS
-new_tag="$fixed_tag""$(($3+1))"     # new_tag here is the updated tag after increment.
-echo $new_tag       # Showing  the output of new_tag variable.
-cd $current_dir
-rm -r $reponame
+    git clone git@github.com:mayadata-io/maya-io-release.git
+    cd maya-io-release/
+    fixed_tag=$(cat MAJOR.MINOR)
+    cd $current_dir
+    rm -r maya-io-release/
+    git clone git@github.com:mayadata-io/"$reponame".git
+    cd "$reponame"/
+    git checkout master  > /dev/null 2>&1
+    var=$(git tag -l v[0-9].* | tail -n 1) #this will fetch all tags
+    oldIFS=$IFS     # Its an inter-field separator(IFS)
+    IFS="."
+    set -- $var
+    IFS=$oldIFS
+    new_tag="$fixed_tag""$(($3+1))"     # new_tag here is the updated tag after increment.
+    echo $new_tag       # Showing  the output of new_tag variable.
+    cd $current_dir
+    rm -r $reponame
 else 
-var=$(git tag --sort=committerdate | tail -1) # this will fetch latest tag 
-echo $var
+    var=$(git tag --sort=committerdate | tail -1) # this will fetch latest tag 
+    echo $var
 fi
