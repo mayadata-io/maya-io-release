@@ -1,7 +1,9 @@
 #!/bin/sh
-set -x
+set -xe
 current_dir=$(pwd)
 branchname="$1"
+git branch
+git checkout $branchname
 var=$(git tag --sort=committerdate --merged $branchname | tail -1)
 # oldIFS=$IFS     # Its an inter-field separator(IFS)
 # IFS="."
