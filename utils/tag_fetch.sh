@@ -17,3 +17,5 @@ var=$(git tag --sort=committerdate --merged $branchname | tail -1)
 # cd $current_dir
 # rm -r $reponame
 echo $var
+cd $current_dir
+rm -rf $reponame
