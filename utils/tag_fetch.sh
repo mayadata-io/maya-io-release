@@ -16,6 +16,13 @@ var=$(git tag --sort=committerdate --merged $branchname | tail -1)
 # echo $new_tag       # Showing  the output of new_tag variable.
 # cd $current_dir
 # rm -r $reponame
-echo $var
+#echo $var
+if [[ $var =~ ^[0-9].[0-9].[0-9]-(.*)$ ]];then  #tag for maya io master
+    echo $var
+elif [[ $TAG_NAME =~ ^[0-9].[0-9].[0-9]$ ]]; then
+   echo $var
+else
+ echo ""
+fi
 cd $current_dir
 rm -rf $reponame
