@@ -1,5 +1,5 @@
 #!/bin/sh
-set -xe
+set -e
 current_dir=$(pwd)
 reponame="$1"
 branchname="$2"
