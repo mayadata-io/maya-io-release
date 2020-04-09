@@ -3,7 +3,7 @@ set -xe
 current_dir=$(pwd)
 reponame="$1"
 branchname="master"
-git branch
+#git branch
 git clone git@github.com:mayadata-io/"$reponame".git
 cd "$reponame"/
 git checkout "$branchname" > /dev/null 2>&1
