@@ -1,5 +1,5 @@
 #!/bin/sh
-set -e
+set -xe
 current_dir=$(pwd)
 reponame="$1"
 branchname="master"
