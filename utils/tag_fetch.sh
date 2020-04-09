@@ -2,7 +2,7 @@
 set -e
 current_dir=$(pwd)
 reponame="$1"
-branchname="$2"
+branchname="master"
 git branch
 git clone git@github.com:mayadata-io/"$reponame".git
 cd $reponame
