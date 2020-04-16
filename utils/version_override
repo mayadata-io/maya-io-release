@@ -12,7 +12,8 @@ if [[ $branchname = "master" ]];then  #tag for master
     git clone git@github.com:mayadata-io/"$reponame".git
     cd "$reponame"/
     git checkout master  > /dev/null 2>&1
-    var=$(git tag -l v[0-9].* | tail -n 1) #this will fetch all tags
+    #var=$(git tag -l v[0-9].* | tail -n 1) #this will fetch all tags
+    var=$(git describe --tags --abbrev=0 master)
     oldIFS=$IFS     # Its an inter-field separator(IFS)
     IFS="."
     set -- $var
