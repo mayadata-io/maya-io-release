@@ -7,7 +7,8 @@ branchname="master"
 git clone git@github.com:mayadata-io/"$reponame".git
 cd "$reponame"/
 git checkout "$branchname" > /dev/null 2>&1
-var=$(git tag --sort=committerdate --merged $branchname | tail -1)
+#var=$(git tag --sort=committerdate --merged $branchname | tail -1)
+var=$(git describe --tags --abbrev=0 master)
 # oldIFS=$IFS     # Its an inter-field separator(IFS)
 # IFS="."
 # set -- $var
