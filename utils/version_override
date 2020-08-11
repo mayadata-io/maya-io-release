@@ -25,6 +25,7 @@ if [[ $branchname = "master" ]];then  #tag for master
 else 
     #var=$(git tag --sort=committerdate | tail -1) # this will fetch latest tag 
     #var=$(git tag -l v[0-9].* | tail -n 1)
-    git describe --tags $(git rev-list --tags --max-count=1)
+    #git describe --tags $(git rev-list --tags --max-count=1)
+    git tag --points-at HEAD | awk NF
     echo $var
 fi
